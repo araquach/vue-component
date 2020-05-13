@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/dgrijalva/jwt-go"
+	"github.com/kataras/muxie"
 	"golang.org/x/crypto/bcrypt"
 	"log"
 	"net/http"
@@ -15,6 +16,38 @@ func index(w http.ResponseWriter, r *http.Request) {
 	if err := tplIndex.Execute(w, nil); err != nil {
 		panic(err)
 	}
+}
+
+func apiTeam(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/json")
+
+	db := dbConn()
+	team := []TeamMember{}
+	db.Find(&team)
+	db.Close()
+
+	json, err := json.Marshal(team)
+	if err != nil {
+		log.Println(err)
+	}
+	w.Write(json)
+}
+
+func apiTeamMember(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/json")
+
+	param := muxie.GetParam(w, "slug")
+
+	db := dbConn()
+	tm := []TeamMember{}
+	db.Where("slug = ?", param).First(&tm)
+	db.Close()
+
+	json, err := json.Marshal(tm)
+	if err != nil {
+		log.Println(err)
+	}
+	w.Write(json)
 }
 
 func apiRegister(w http.ResponseWriter, r *http.Request) {

@@ -7,6 +7,9 @@
             <b-navbar-item tag="router-link" to="/about">
                 About
             </b-navbar-item>
+            <b-navbar-item tag="router-link" to="/team">
+                Team
+            </b-navbar-item>
             <b-navbar-dropdown  v-if="isLoggedIn" label="More">
                 <b-navbar-item tag="router-link" to="/protected">
                     Protected

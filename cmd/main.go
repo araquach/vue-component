@@ -29,8 +29,7 @@ func main() {
 	}
 
 	tplIndex = template.Must(template.ParseFiles(
-		"views/layouts/main.gohtml",
-		"views/pages/index.gohtml"))
+		"views/main.gohtml"))
 	if err != nil {
 		panic(err)
 	}
@@ -45,4 +44,11 @@ func main() {
 	log.Printf("Starting server on %s", port)
 
 	http.ListenAndServe(":"+port, r)
+}
+
+func index(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "text/html")
+	if err := tplIndex.Execute(w, nil); err != nil {
+		panic(err)
+	}
 }

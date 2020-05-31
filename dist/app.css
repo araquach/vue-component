@@ -17384,11 +17384,3 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
   }
 }
 
-.help {
-  display: none;
-}
-
-.help.is-danger {
-  display: block;
-}
-

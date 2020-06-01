@@ -8,7 +8,7 @@
         <div class="modal">
             <div class="inner">
                 <button class="close-button" @click="handleClose">Close</button>
-                <slot></slot>
+                <slot/>
             </div>
         </div>
     </transition>
@@ -17,7 +17,6 @@
 <script>
     import { TweenMax, Power4 } from "gsap";
     export default {
-        name: "modal",
         methods: {
             enter(el, done) {
                 TweenMax.fromTo(

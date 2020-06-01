@@ -3,7 +3,7 @@
         <h1>Games</h1>
         <ul>
             <li v-for="game in games" :key="game.id">
-                <router-link :to="{ name: 'Game Rules', params: { id: game.id } }">
+                <router-link :to="{ name: 'game-rules', params: { id: game.id } }">
                     {{ game.title }}
                 </router-link>
             </li>

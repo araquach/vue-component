@@ -10,24 +10,22 @@ export const routes = [
     },
     {
         path: "/game/:id",
-        name: "Game",
+        name: "game",
         component: GameSingle,
         children: [
             {
                 path: "rules",
-                name: "Game Rules",
-                components: {
-                    page: RuleList
-                },
+                name: "game-rules",
+                component: RuleList,
                 meta: {
                     showModal: false
                 }
             },
             {
                 path: "rules/:ruleId",
-                name: "Game Rule",
+                name: "game-rule",
                 components: {
-                    page: RuleList,
+                    default: RuleList,
                     rule: RuleSingle
                 },
                 meta: {

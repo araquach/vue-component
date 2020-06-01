@@ -2,9 +2,9 @@
     <div class="section">
         <h1>{{game.title}}</h1>
 
-        <router-view name="page"/>
+        <router-view/>
 
-        <modal v-if="showModal" ref="modal">
+        <modal v-if="showModal">
             <router-view name="rule"/>
         </modal>
     </div>
@@ -15,7 +15,6 @@
     import Modal from './Modal'
 
     export default {
-        name: 'Game',
         components: {
             Modal
         },

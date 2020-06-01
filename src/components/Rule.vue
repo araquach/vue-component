@@ -1,19 +1,12 @@
 <template>
     <div>
-        <p>{{ rule.text }}</p>
-
-        <ul>
-            <li>
-                <button>Delete</button>
-            </li>
-        </ul>
+        <p>{{ rule.text }} Adam Carter</p>
     </div>
 </template>
 
 <script>
-    import games from "../data/games";
+    import games from "../data/games"
     export default {
-        name: "rule",
         computed: {
             rule() {
                 const { id, ruleId } = this.$route.params;

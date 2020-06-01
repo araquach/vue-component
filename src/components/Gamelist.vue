@@ -13,11 +13,11 @@
 
 <script>
     import games from "../data/games"
+
     export default {
-        name: 'Todos',
         data() {
             return {
-                games
+                games: games
             }
         }
     }

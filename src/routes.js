@@ -1,38 +1,30 @@
-import GameList from './components/GameList.vue'
-import GameSingle from './components/Game'
-import RuleList from './components/RuleList'
-import RuleSingle from './components/Rule'
+import Home from "./components/Home"
+import People from "./components/People"
+import Person from "./components/Person"
 
 export const routes = [
     {
-        path: "/",
-        component: GameList
+        path: "",
+        name: "home",
+        component: Home
     },
     {
-        path: "/game/:id",
-        name: "game",
-        component: GameSingle,
+        path: "/people",
+        name: "people",
+        component: People,
         children: [
             {
-                path: "rules",
-                name: "game-rules",
-                component: RuleList,
-                meta: {
-                    showModal: false
-                }
-            },
-            {
-                path: "rules/:ruleId",
-                name: "game-rule",
+                path: "/person/:id",
+                name: "person",
                 components: {
-                    default: RuleList,
-                    rule: RuleSingle
+                    default: People,
+                    person: Person
                 },
                 meta: {
                     showModal: true
-                }
+                },
+                props: true
             }
         ]
-    }
+    },
 ]
-
